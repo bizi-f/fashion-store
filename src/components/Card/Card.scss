@@ -1,0 +1,34 @@
+.card {
+  display: grid;
+  gap: fluid(16, 12);
+  min-height: fluid-to-laptop(216, 192);
+  padding: fluid(24, 18);
+  border-radius: var(--border-radius-m);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.36s ease, border-color 0.36s ease;
+
+  @include hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in oklab, var(--color-accent) 36%, var(--color-border));
+  }
+
+  &__head {
+    display: flex;
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(28, 20);
+    line-height: 1.08;
+    letter-spacing: 0.01em;
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: fluid(17, 14);
+    line-height: 1.45;
+  }
+}

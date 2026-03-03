@@ -1,0 +1,67 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: fluid-to-laptop(52, 44);
+  padding-inline: fluid-to-laptop(26, 18);
+  border-radius: var(--border-radius-s);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: fluid(16, 14);
+  line-height: 1;
+  transition:
+    transform 0.24s ease,
+    background-color 0.24s ease,
+    border-color 0.24s ease,
+    color 0.24s ease;
+
+  @include hover {
+    transform: translateY(-1px);
+  }
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--primary {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent),
+      color-mix(in oklab, var(--color-accent) 76%, #ff9f45)
+    );
+    color: var(--color-accent-contrast);
+    box-shadow: 0 8px 18px
+      color-mix(in oklab, var(--color-accent) 35%, transparent);
+  }
+
+  &--ghost {
+    background-color: var(--color-surface-strong);
+    border-color: var(--color-border);
+    color: var(--color-text);
+
+    @include hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+  }
+
+  &.is-added {
+    animation: button-added 0.5s ease;
+  }
+}
+
+@keyframes button-added {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  45% {
+    transform: translateY(-2px) scale(1.045);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}

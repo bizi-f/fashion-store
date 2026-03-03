@@ -1,0 +1,14 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000' role='img' aria-label='Image 01 A'>
+  <defs>
+    <linearGradient id='g' x1='0' x2='1' y1='0' y2='1'>
+      <stop offset='0%' stop-color='#cfdaf5'/>
+      <stop offset='100%' stop-color='#6c8ed9'/>
+    </linearGradient>
+  </defs>
+  <rect width='800' height='1000' fill='url(#g)'/>
+  <rect x='120' y='130' width='560' height='740' rx='28' fill='rgba(255,255,255,0.42)'/>
+  <rect x='180' y='210' width='440' height='420' rx='18' fill='rgba(255,255,255,0.62)'/>
+  <rect x='180' y='670' width='300' height='24' rx='12' fill='rgba(255,255,255,0.62)'/>
+  <rect x='180' y='718' width='220' height='24' rx='12' fill='rgba(255,255,255,0.55)'/>
+  <text x='400' y='810' text-anchor='middle' font-family='Arial, sans-serif' font-size='36' fill='rgba(40,40,40,0.65)'>Image 01 A</text>
+</svg>

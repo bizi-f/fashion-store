@@ -1,0 +1,28 @@
+.not-found {
+  padding-block: fluid(86, 40);
+
+  &__inner {
+    display: grid;
+    justify-items: start;
+    gap: 12px;
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(92, 56);
+    line-height: 0.95;
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: fluid(20, 15);
+  }
+
+  &__link {
+    margin-top: 6px;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}

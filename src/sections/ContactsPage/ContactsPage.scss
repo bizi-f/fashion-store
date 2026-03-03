@@ -1,0 +1,155 @@
+.contacts-page {
+  padding-block: fluid(56, 28);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: fluid(20, 14);
+  }
+
+  &__info,
+  &__form {
+    display: grid;
+    gap: fluid(14, 10);
+    padding: fluid(24, 16);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-m);
+    background: var(--color-surface);
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(44, 28);
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: fluid(17, 14);
+    line-height: 1.45;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+
+  &__item {
+    color: var(--color-text);
+    font-size: fluid(16, 14);
+  }
+
+  &__hours {
+    margin: 0;
+    color: var(--color-accent);
+    font-size: fluid(15, 13);
+    font-weight: 600;
+  }
+
+  &__field {
+    display: grid;
+    gap: 7px;
+  }
+
+  &__label {
+    font-size: fluid(14, 12);
+    color: var(--color-text-muted);
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    border-radius: var(--border-radius-s);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-strong);
+    color: var(--color-text);
+    padding: 12px 14px;
+    font: inherit;
+    outline: none;
+
+    &:focus {
+      border-color: var(--color-accent);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: fluid(120, 100);
+  }
+}
+
+.contacts-page-map {
+  padding-bottom: fluid(18, 12);
+
+  &__inner {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-m);
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    min-height: fluid(320, 220);
+    object-fit: cover;
+  }
+}
+
+.contacts-page-faq {
+  padding-bottom: fluid(32, 20);
+
+  &__inner {
+    display: grid;
+    gap: fluid(14, 10);
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(32, 24);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: fluid(12, 10);
+  }
+
+  &__item {
+    display: grid;
+    gap: 8px;
+    padding: fluid(18, 14);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-s);
+    background: var(--color-surface);
+  }
+
+  &__question {
+    margin: 0;
+    font-size: fluid(18, 15);
+  }
+
+  &__answer {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: fluid(15, 13);
+    line-height: 1.45;
+  }
+}
+
+@include tablet {
+  .contacts-page {
+    &__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .contacts-page-faq {
+    &__list {
+      grid-template-columns: 1fr;
+    }
+  }
+}

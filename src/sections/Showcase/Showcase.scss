@@ -1,0 +1,29 @@
+.showcase {
+  padding-bottom: fluid(54, 24);
+
+  &__inner {
+    display: grid;
+    gap: fluid(22, 16);
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: fluid(16, 12);
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: fluid(16, 12);
+  }
+}
+
+@include tablet {
+  .showcase {
+    &__cards,
+    &__products {
+      grid-template-columns: 1fr;
+    }
+  }
+}

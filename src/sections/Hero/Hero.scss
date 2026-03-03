@@ -1,0 +1,259 @@
+.hero {
+  padding-block: fluid(70, 32);
+
+  &__inner {
+    display: grid;
+    gap: fluid(24, 14);
+    padding: fluid(42, 22);
+    border-radius: fluid(22, 16);
+    background:
+      radial-gradient(
+        700px 260px at 8% 100%,
+        color-mix(in oklab, var(--color-accent) 22%, transparent),
+        transparent 72%
+      ),
+      radial-gradient(
+        500px 220px at 92% 14%,
+        rgb(111 166 255 / 20%),
+        transparent 70%
+      ),
+      linear-gradient(
+        145deg,
+        var(--color-surface),
+        color-mix(
+          in oklab,
+          var(--color-surface) 86%,
+          var(--color-surface-strong)
+        )
+      );
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    transform-style: preserve-3d;
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 20ch;
+    @include fluid-text(58, 30);
+    line-height: 1.04;
+  }
+
+  &__text {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--color-text-muted);
+    font-size: fluid(20, 15);
+    line-height: 1.45;
+  }
+
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: fluid-to-laptop(42, 36);
+    padding-inline: fluid-to-laptop(18, 14);
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-strong);
+    color: var(--color-text);
+    font-size: fluid(15, 13);
+  }
+
+  &__scene {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: fluid(14, 10);
+    min-height: fluid(210, 160);
+    align-items: stretch;
+    padding: fluid(8, 4);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 8% 5%;
+      border-radius: fluid(18, 14);
+      background: linear-gradient(
+        140deg,
+        rgb(255 255 255 / 14%),
+        transparent 62%
+      );
+      border: 1px solid
+        color-mix(in oklab, var(--color-border) 75%, transparent);
+      pointer-events: none;
+    }
+  }
+
+  &__floating {
+    position: relative;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-s);
+    background: color-mix(in oklab, var(--color-surface) 90%, transparent);
+    padding: fluid(14, 10);
+    box-shadow: var(--shadow-soft);
+    transform: perspective(900px) rotateX(6deg) rotateY(-6deg) translateZ(0);
+    animation: hero-card-float 8s ease-in-out infinite;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        rgb(255 255 255 / 16%),
+        transparent 35%
+      );
+      pointer-events: none;
+    }
+
+    &--catalog {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      display: grid;
+      align-content: end;
+      min-height: fluid(210, 150);
+      background:
+        radial-gradient(
+          260px 120px at 80% 14%,
+          rgb(255 187 112 / 24%),
+          transparent 72%
+        ),
+        linear-gradient(
+          150deg,
+          color-mix(
+            in oklab,
+            var(--color-surface) 90%,
+            var(--color-surface-strong)
+          ),
+          var(--color-surface)
+        );
+    }
+
+    &--price {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      align-self: end;
+      animation-delay: -1.6s;
+    }
+
+    &--delivery {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      align-self: start;
+      animation-delay: -2.8s;
+    }
+
+    &--sale {
+      position: absolute;
+      right: fluid(14, 8);
+      bottom: fluid(12, 6);
+      min-width: fluid(120, 94);
+      text-align: center;
+      border-radius: 999px;
+      background: color-mix(
+        in oklab,
+        var(--color-accent) 16%,
+        var(--color-surface)
+      );
+      animation-delay: -3.6s;
+    }
+  }
+
+  &__floating-title {
+    margin: 0;
+    font-size: fluid(16, 13);
+    font-weight: 700;
+  }
+
+  &__floating-value {
+    margin: 0;
+    font-size: fluid(30, 22);
+    line-height: 1;
+    color: var(--color-accent);
+    font-weight: 800;
+  }
+
+  &__floating-text {
+    margin: 6px 0 0;
+    color: var(--color-text-muted);
+    font-size: fluid(14, 12);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@keyframes hero-card-float {
+  0%,
+  100% {
+    transform: perspective(900px) rotateX(6deg) rotateY(-6deg) translateY(0);
+  }
+
+  50% {
+    transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-7px);
+  }
+}
+
+@include tablet {
+  .hero {
+    &__scene {
+      min-height: unset;
+
+      &::before {
+        inset: 6% 4%;
+        border: none;
+      }
+    }
+
+    &__floating {
+      transform: none;
+      animation: none;
+      width: min(360px, 100%);
+
+      &--catalog,
+      &--price,
+      &--delivery {
+        grid-column: auto;
+        grid-row: auto;
+        align-self: stretch;
+      }
+
+      &--catalog {
+        min-height: unset;
+      }
+
+      &--sale {
+        position: static;
+        min-width: 0;
+        text-align: left;
+        border-radius: var(--border-radius-s);
+      }
+    }
+  }
+}
+
+@include mobile {
+  .hero {
+    &__scene {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    &__floating {
+      animation: none;
+      transform: none;
+    }
+  }
+}

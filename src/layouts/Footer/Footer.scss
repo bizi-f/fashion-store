@@ -1,0 +1,18 @@
+.site-footer {
+  padding-block: fluid(24, 18) fluid(36, 24);
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: fluid(18, 14);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: fluid(14, 12);
+    background: var(--color-surface);
+    border-radius: var(--border-radius-m);
+    padding: fluid(16, 12);
+  }
+}

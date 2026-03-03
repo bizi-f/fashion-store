@@ -1,0 +1,230 @@
+.home-ticker {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: fluid(28, 16);
+  border-block: 1px solid var(--color-border);
+  background: color-mix(
+    in oklab,
+    var(--color-surface) 88%,
+    var(--color-surface-strong)
+  );
+
+  &__track {
+    display: flex;
+    align-items: center;
+    gap: fluid(28, 16);
+    width: max-content;
+    min-height: fluid-to-laptop(54, 44);
+    padding-inline: fluid(24, 14);
+    animation: home-ticker-run 24s linear infinite;
+    will-change: transform;
+  }
+
+  &__item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: fluid(15, 13);
+    font-weight: 600;
+    color: var(--color-text);
+
+    &::before {
+      content: '•';
+      color: var(--color-accent);
+      margin-right: fluid(10, 8);
+    }
+  }
+}
+
+.home-page-categories {
+  padding-bottom: fluid(30, 16);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: fluid(12, 8);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: fluid-to-laptop(56, 46);
+    padding-inline: fluid-to-laptop(16, 12);
+    border-radius: var(--border-radius-s);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: fluid(15, 13);
+    text-align: center;
+    transition:
+      border-color 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
+
+    @include hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+@keyframes home-ticker-run {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.home-page-products {
+  padding-block: fluid(12, 8) fluid(46, 24);
+
+  &__inner {
+    display: grid;
+    gap: fluid(14, 10);
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(36, 24);
+  }
+
+  &__link {
+    color: var(--color-accent);
+    font-size: fluid(15, 13);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: fluid(16, 12);
+  }
+}
+
+.home-page-newsletter {
+  padding-bottom: fluid(30, 20);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: fluid(16, 12);
+    padding: fluid(24, 16);
+    border-radius: var(--border-radius-m);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  &__content {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(34, 22);
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: fluid(16, 14);
+    line-height: 1.45;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__input {
+    flex: 1;
+    min-height: fluid-to-laptop(52, 44);
+    padding-inline: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-s);
+    background: var(--color-surface-strong);
+    color: var(--color-text);
+    font: inherit;
+  }
+
+  &__submit {
+    min-height: fluid-to-laptop(52, 44);
+    padding-inline: fluid-to-laptop(20, 16);
+    border-radius: var(--border-radius-s);
+    border: 1px solid var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+@include tablet {
+  .home-page-categories {
+    &__inner {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .home-page-products {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .home-page-newsletter {
+    &__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@include mobile {
+  .home-page-categories {
+    &__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .home-page-products {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .home-page-newsletter {
+    &__form {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-ticker {
+    &__track {
+      animation: none;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      row-gap: 8px;
+      padding-block: 10px;
+    }
+  }
+}
