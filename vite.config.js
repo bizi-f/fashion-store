@@ -1,7 +1,7 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 
-const repoName = 'fashion-store-landing'
+const repoName = 'fashion-store'
 const isGithubPagesBuild = process.env.GITHUB_PAGES === 'true'
 
 export default defineConfig({
